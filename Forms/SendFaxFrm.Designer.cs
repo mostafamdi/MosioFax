@@ -1,0 +1,460 @@
+﻿namespace MSIOFAX_Send.Forms
+{
+    partial class SendFaxFrm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.pleaseWaitLbl = new System.Windows.Forms.Label();
+            this.loadingBarPic = new System.Windows.Forms.PictureBox();
+            this.selectFileBtn = new System.Windows.Forms.Button();
+            this.fileNameLbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dstTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.srcTxtBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.SendFaxBtn = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.HPassTxt = new System.Windows.Forms.TextBox();
+            this.HUserTxt = new System.Windows.Forms.TextBox();
+            this.ServerIPTxt = new System.Windows.Forms.TextBox();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.errorProviderSrc = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDst = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFile = new System.Windows.Forms.ErrorProvider(this.components);
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label53);
+            this.flowLayoutPanel1.Controls.Add(this.label17);
+            this.flowLayoutPanel1.Controls.Add(this.label18);
+            this.flowLayoutPanel1.Controls.Add(this.label19);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(274, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(141, 317);
+            this.flowLayoutPanel1.TabIndex = 39;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.BackColor = System.Drawing.Color.SandyBrown;
+            this.label53.Location = new System.Drawing.Point(5, 5);
+            this.label53.Margin = new System.Windows.Forms.Padding(5);
+            this.label53.Name = "label53";
+            this.label53.Padding = new System.Windows.Forms.Padding(10);
+            this.label53.Size = new System.Drawing.Size(73, 39);
+            this.label53.TabIndex = 71;
+            this.label53.Text = "label53";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.SandyBrown;
+            this.label17.Location = new System.Drawing.Point(5, 54);
+            this.label17.Margin = new System.Windows.Forms.Padding(5);
+            this.label17.Name = "label17";
+            this.label17.Padding = new System.Windows.Forms.Padding(10);
+            this.label17.Size = new System.Drawing.Size(73, 39);
+            this.label17.TabIndex = 72;
+            this.label17.Text = "label17";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.SandyBrown;
+            this.label18.Location = new System.Drawing.Point(5, 103);
+            this.label18.Margin = new System.Windows.Forms.Padding(5);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(10);
+            this.label18.Size = new System.Drawing.Size(73, 39);
+            this.label18.TabIndex = 73;
+            this.label18.Text = "label18";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.SandyBrown;
+            this.label19.Location = new System.Drawing.Point(5, 152);
+            this.label19.Margin = new System.Windows.Forms.Padding(5);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(10);
+            this.label19.Size = new System.Drawing.Size(129, 58);
+            this.label19.TabIndex = 74;
+            this.label19.Text = "tty 900, seding a fax";
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage5);
+            this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(265, 321);
+            this.tabControl2.TabIndex = 38;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tabPage5.Controls.Add(this.pleaseWaitLbl);
+            this.tabPage5.Controls.Add(this.loadingBarPic);
+            this.tabPage5.Controls.Add(this.selectFileBtn);
+            this.tabPage5.Controls.Add(this.fileNameLbl);
+            this.tabPage5.Controls.Add(this.label12);
+            this.tabPage5.Controls.Add(this.dstTextBox);
+            this.tabPage5.Controls.Add(this.label11);
+            this.tabPage5.Controls.Add(this.srcTxtBox);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Controls.Add(this.SendFaxBtn);
+            this.tabPage5.Location = new System.Drawing.Point(4, 30);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(257, 287);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "Send";
+            // 
+            // pleaseWaitLbl
+            // 
+            this.pleaseWaitLbl.AutoSize = true;
+            this.pleaseWaitLbl.ForeColor = System.Drawing.Color.Red;
+            this.pleaseWaitLbl.Location = new System.Drawing.Point(78, 263);
+            this.pleaseWaitLbl.Name = "pleaseWaitLbl";
+            this.pleaseWaitLbl.Size = new System.Drawing.Size(105, 21);
+            this.pleaseWaitLbl.TabIndex = 9;
+            this.pleaseWaitLbl.Text = "Please Wait...";
+            this.pleaseWaitLbl.Visible = false;
+            // 
+            // loadingBarPic
+            // 
+            this.loadingBarPic.Image = global::MSIOFAX_Send.Properties.Resources.loading21;
+            this.loadingBarPic.Location = new System.Drawing.Point(82, 248);
+            this.loadingBarPic.Name = "loadingBarPic";
+            this.loadingBarPic.Size = new System.Drawing.Size(90, 12);
+            this.loadingBarPic.TabIndex = 8;
+            this.loadingBarPic.TabStop = false;
+            this.loadingBarPic.Visible = false;
+            // 
+            // selectFileBtn
+            // 
+            this.selectFileBtn.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.selectFileBtn.ForeColor = System.Drawing.Color.Indigo;
+            this.selectFileBtn.Location = new System.Drawing.Point(25, 180);
+            this.selectFileBtn.Name = "selectFileBtn";
+            this.selectFileBtn.Size = new System.Drawing.Size(208, 30);
+            this.selectFileBtn.TabIndex = 7;
+            this.selectFileBtn.Text = "Select File";
+            this.selectFileBtn.UseVisualStyleBackColor = true;
+            this.selectFileBtn.Click += new System.EventHandler(this.selectFileBtn_Click);
+            // 
+            // fileNameLbl
+            // 
+            this.fileNameLbl.AutoSize = true;
+            this.fileNameLbl.Location = new System.Drawing.Point(92, 140);
+            this.fileNameLbl.Name = "fileNameLbl";
+            this.fileNameLbl.Size = new System.Drawing.Size(34, 21);
+            this.fileNameLbl.TabIndex = 6;
+            this.fileNameLbl.Text = "......";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.Indigo;
+            this.label12.Location = new System.Drawing.Point(21, 140);
+            this.label12.Name = "label12";
+            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label12.Size = new System.Drawing.Size(39, 21);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "File:";
+            // 
+            // dstTextBox
+            // 
+            this.dstTextBox.Location = new System.Drawing.Point(25, 96);
+            this.dstTextBox.Name = "dstTextBox";
+            this.dstTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dstTextBox.Size = new System.Drawing.Size(208, 29);
+            this.dstTextBox.TabIndex = 4;
+            this.dstTextBox.Text = "901";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Indigo;
+            this.label11.Location = new System.Drawing.Point(21, 72);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label11.Size = new System.Drawing.Size(188, 21);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Destination Fax Number:";
+            // 
+            // srcTxtBox
+            // 
+            this.srcTxtBox.Location = new System.Drawing.Point(25, 40);
+            this.srcTxtBox.Name = "srcTxtBox";
+            this.srcTxtBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.srcTxtBox.Size = new System.Drawing.Size(208, 29);
+            this.srcTxtBox.TabIndex = 2;
+            this.srcTxtBox.Text = "900";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Indigo;
+            this.label10.Location = new System.Drawing.Point(21, 16);
+            this.label10.Name = "label10";
+            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label10.Size = new System.Drawing.Size(139, 21);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Fax Device to use:";
+            // 
+            // SendFaxBtn
+            // 
+            this.SendFaxBtn.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.SendFaxBtn.ForeColor = System.Drawing.Color.Indigo;
+            this.SendFaxBtn.Location = new System.Drawing.Point(25, 216);
+            this.SendFaxBtn.Name = "SendFaxBtn";
+            this.SendFaxBtn.Size = new System.Drawing.Size(208, 30);
+            this.SendFaxBtn.TabIndex = 0;
+            this.SendFaxBtn.Text = "Send";
+            this.SendFaxBtn.UseVisualStyleBackColor = true;
+            this.SendFaxBtn.Click += new System.EventHandler(this.SendFaxBtn_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.label16);
+            this.tabPage6.Controls.Add(this.label15);
+            this.tabPage6.Controls.Add(this.label14);
+            this.tabPage6.Controls.Add(this.HPassTxt);
+            this.tabPage6.Controls.Add(this.HUserTxt);
+            this.tabPage6.Controls.Add(this.ServerIPTxt);
+            this.tabPage6.Controls.Add(this.SaveBtn);
+            this.tabPage6.Location = new System.Drawing.Point(4, 30);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(257, 287);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Settings";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(20, 134);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(103, 21);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Hylafax Pass:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(20, 78);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(146, 21);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "HylaFax Username:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 20);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(79, 21);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "ServerIP :";
+            // 
+            // HPassTxt
+            // 
+            this.HPassTxt.Location = new System.Drawing.Point(23, 158);
+            this.HPassTxt.Name = "HPassTxt";
+            this.HPassTxt.PasswordChar = '*';
+            this.HPassTxt.Size = new System.Drawing.Size(209, 29);
+            this.HPassTxt.TabIndex = 3;
+            // 
+            // HUserTxt
+            // 
+            this.HUserTxt.Location = new System.Drawing.Point(24, 102);
+            this.HUserTxt.Name = "HUserTxt";
+            this.HUserTxt.Size = new System.Drawing.Size(208, 29);
+            this.HUserTxt.TabIndex = 2;
+            // 
+            // ServerIPTxt
+            // 
+            this.ServerIPTxt.Location = new System.Drawing.Point(24, 44);
+            this.ServerIPTxt.Name = "ServerIPTxt";
+            this.ServerIPTxt.Size = new System.Drawing.Size(208, 29);
+            this.ServerIPTxt.TabIndex = 1;
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(23, 209);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(209, 29);
+            this.SaveBtn.TabIndex = 0;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 30);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(257, 287);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "About";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // errorProviderSrc
+            // 
+            this.errorProviderSrc.ContainerControl = this;
+            // 
+            // errorProviderDst
+            // 
+            this.errorProviderDst.ContainerControl = this;
+            // 
+            // errorProviderFile
+            // 
+            this.errorProviderFile.ContainerControl = this;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.Controls.Add(this.tabControl2);
+            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(432, 419);
+            this.flowLayoutPanel2.TabIndex = 40;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(469, 425);
+            this.flowLayoutPanel3.TabIndex = 41;
+            // 
+            // SendFaxFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(733, 543);
+            this.Controls.Add(this.flowLayoutPanel3);
+            this.Name = "SendFaxFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SendFaxFrm";
+            this.Load += new System.EventHandler(this.SendFaxFrm_Load);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button selectFileBtn;
+        private System.Windows.Forms.Label fileNameLbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox dstTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox srcTxtBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button SendFaxBtn;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox HPassTxt;
+        private System.Windows.Forms.TextBox HUserTxt;
+        private System.Windows.Forms.TextBox ServerIPTxt;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.ErrorProvider errorProviderSrc;
+        private System.Windows.Forms.ErrorProvider errorProviderDst;
+        private System.Windows.Forms.ErrorProvider errorProviderFile;
+        private System.Windows.Forms.Label pleaseWaitLbl;
+        private System.Windows.Forms.PictureBox loadingBarPic;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+    }
+}
