@@ -25,7 +25,6 @@ D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOF
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Debug\Hylafax.net.dll
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Debug\Org.Mentalis.Security.dll
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Debug\Tamir.SharpSSH.dll
-D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Forms.Form1.resources
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Forms.SendFax.resources
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Properties.Resources.resources
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Forms.SendFax.fa.resources
@@ -33,6 +32,5 @@ D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOF
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\fa\MSIOFAX-Send.resources.dll
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.exe
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.pdb
-D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Forms.Send.resources
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.csprojResolveAssemblyReference.cache
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX_Send.Forms.SendFaxFrm.resources
