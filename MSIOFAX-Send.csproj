@@ -60,14 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assistans\CommandLine.cs" />
-    <Compile Include="Assistans\ModemViewModel.cs" />
-    <Compile Include="Forms\SendFax.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SendFax.Designer.cs">
-      <DependentUpon>SendFax.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SendFaxFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +80,6 @@
     <Compile Include="Sservices\InfoSavingManager.cs" />
     <Compile Include="Sservices\ISecureStorage.cs" />
     <Compile Include="Sservices\SecureStorage.cs" />
-    <EmbeddedResource Include="Forms\SendFax.fa.resx">
-      <DependentUpon>SendFax.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SendFax.resx">
-      <DependentUpon>SendFax.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SendFaxFrm.resx">
       <DependentUpon>SendFaxFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,7 +105,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
@@ -127,9 +112,6 @@
     <None Include="Resources\Fidget-spinner1.gif" />
     <None Include="Resources\loading21.gif" />
     <None Include="Resources\loading2.gif" />
-    <Content Include="XMLFiles\ModemNames.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

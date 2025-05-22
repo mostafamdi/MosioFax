@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.pleaseWaitLbl = new System.Windows.Forms.Label();
@@ -58,9 +53,6 @@
             this.errorProviderSrc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDst = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFile = new System.Windows.Forms.ErrorProvider(this.components);
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).BeginInit();
@@ -68,71 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.label53);
-            this.flowLayoutPanel1.Controls.Add(this.label17);
-            this.flowLayoutPanel1.Controls.Add(this.label18);
-            this.flowLayoutPanel1.Controls.Add(this.label19);
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(274, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(141, 317);
-            this.flowLayoutPanel1.TabIndex = 39;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.Color.SandyBrown;
-            this.label53.Location = new System.Drawing.Point(5, 5);
-            this.label53.Margin = new System.Windows.Forms.Padding(5);
-            this.label53.Name = "label53";
-            this.label53.Padding = new System.Windows.Forms.Padding(10);
-            this.label53.Size = new System.Drawing.Size(73, 39);
-            this.label53.TabIndex = 71;
-            this.label53.Text = "label53";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.SandyBrown;
-            this.label17.Location = new System.Drawing.Point(5, 54);
-            this.label17.Margin = new System.Windows.Forms.Padding(5);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(10);
-            this.label17.Size = new System.Drawing.Size(73, 39);
-            this.label17.TabIndex = 72;
-            this.label17.Text = "label17";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.SandyBrown;
-            this.label18.Location = new System.Drawing.Point(5, 103);
-            this.label18.Margin = new System.Windows.Forms.Padding(5);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(10);
-            this.label18.Size = new System.Drawing.Size(73, 39);
-            this.label18.TabIndex = 73;
-            this.label18.Text = "label18";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.SandyBrown;
-            this.label19.Location = new System.Drawing.Point(5, 152);
-            this.label19.Margin = new System.Windows.Forms.Padding(5);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(10);
-            this.label19.Size = new System.Drawing.Size(129, 58);
-            this.label19.TabIndex = 74;
-            this.label19.Text = "tty 900, seding a fax";
             // 
             // tabControl2
             // 
@@ -140,11 +68,11 @@
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
+            this.tabControl2.Location = new System.Drawing.Point(12, 12);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(265, 321);
+            this.tabControl2.Size = new System.Drawing.Size(280, 348);
             this.tabControl2.TabIndex = 38;
             // 
             // tabPage5
@@ -163,7 +91,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 30);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(257, 287);
+            this.tabPage5.Size = new System.Drawing.Size(272, 314);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Send";
             // 
@@ -171,7 +99,7 @@
             // 
             this.pleaseWaitLbl.AutoSize = true;
             this.pleaseWaitLbl.ForeColor = System.Drawing.Color.Red;
-            this.pleaseWaitLbl.Location = new System.Drawing.Point(78, 263);
+            this.pleaseWaitLbl.Location = new System.Drawing.Point(75, 277);
             this.pleaseWaitLbl.Name = "pleaseWaitLbl";
             this.pleaseWaitLbl.Size = new System.Drawing.Size(105, 21);
             this.pleaseWaitLbl.TabIndex = 9;
@@ -181,7 +109,7 @@
             // loadingBarPic
             // 
             this.loadingBarPic.Image = global::MSIOFAX_Send.Properties.Resources.loading21;
-            this.loadingBarPic.Location = new System.Drawing.Point(82, 248);
+            this.loadingBarPic.Location = new System.Drawing.Point(79, 262);
             this.loadingBarPic.Name = "loadingBarPic";
             this.loadingBarPic.Size = new System.Drawing.Size(90, 12);
             this.loadingBarPic.TabIndex = 8;
@@ -287,7 +215,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 30);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(257, 287);
+            this.tabPage6.Size = new System.Drawing.Size(272, 314);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Settings";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -373,40 +301,16 @@
             // 
             this.errorProviderFile.ContainerControl = this;
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.Controls.Add(this.tabControl2);
-            this.flowLayoutPanel2.Controls.Add(this.flowLayoutPanel1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(432, 419);
-            this.flowLayoutPanel2.TabIndex = 40;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(12, 12);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(469, 425);
-            this.flowLayoutPanel3.TabIndex = 41;
-            // 
             // SendFaxFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 543);
-            this.Controls.Add(this.flowLayoutPanel3);
+            this.ClientSize = new System.Drawing.Size(962, 543);
+            this.Controls.Add(this.tabControl2);
             this.Name = "SendFaxFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SendFaxFrm";
+            this.Text = "MosioFAX";
             this.Load += new System.EventHandler(this.SendFaxFrm_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -416,19 +320,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button selectFileBtn;
@@ -453,8 +349,5 @@
         private System.Windows.Forms.ErrorProvider errorProviderFile;
         private System.Windows.Forms.Label pleaseWaitLbl;
         private System.Windows.Forms.PictureBox loadingBarPic;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
     }
 }

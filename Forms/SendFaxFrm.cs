@@ -27,7 +27,8 @@ namespace MSIOFAX_Send.Forms
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "PDF Files (*.pdf)|*.PDF";
+            openFileDialog.Filter = "Supported Files (*.tiff; *.pdf; *.txt)|*.tiff;*.pdf;*.txt|TIFF Files (*.tiff)|*.tiff|PDF Files (*.pdf)|*.pdf|Text Files (*.txt)|*.txt";
+            openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = openFileDialog.SafeFileName;
@@ -81,8 +82,9 @@ namespace MSIOFAX_Send.Forms
                                 FaxSender sendFax = new FaxSender(
                                     srcTxtBox.Text.Trim(),
                                     dstTextBox.Text.Trim(),
+                                    DIR,
                                     Properties.Settings.Default.ServerIP,
-                                    fax.File, hylafaxConnection
+                                    hylafaxConnection
                                     );
                                 string faxId = sendFax.SendFax();
                                 this.Invoke((MethodInvoker)(() =>
@@ -128,7 +130,7 @@ namespace MSIOFAX_Send.Forms
         private void SendFaxFrm_Load(object sender, EventArgs e)
         {
             LoadInfo();
-            label53.Text = "tty 900, is getting fax";
+            
         }
         void LoadInfo()
         {
@@ -157,6 +159,7 @@ namespace MSIOFAX_Send.Forms
                             secureStorage
                         );
                     saveingInfo.SaveInfo();
+                MessageBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
