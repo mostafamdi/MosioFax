@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace MSIOFAX_Send.Model
 {
      
-    public interface IHylafaxConnection
+    public interface IHylafax
     {
-        Hylafax  GetHylafaxConnection();
+        Hylafax  GetHylafax();
+        string SendFax(string src, string dst, string host, string filename, Hylafax hylafax);
     }
 }

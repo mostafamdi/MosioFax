@@ -20,7 +20,7 @@
     <Setting Name="RootPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">123456</Value>
     </Setting>
-    <Setting Name="ProductKey" Type="System.String" Scope="User">
+    <Setting Name="Product_Key" Type="System.String" Scope="User">
       <Value Profile="(Default)">VOTT-FOFS-SESN-TETH</Value>
     </Setting>
   </Settings>

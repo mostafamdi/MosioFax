@@ -22,7 +22,7 @@ namespace MSIOFAX_Send.Sservices
                 Properties.Settings.Default.FaxPassword = SecureStorage.Encrypt(Password);
                 Properties.Settings.Default.FaxUsername = UserName;
                 Properties.Settings.Default.ServerIP = ServerIP;
-                Properties.Settings.Default.ProductKey = ProductKey;
+                Properties.Settings.Default.Product_Key = ProductKey;
                 Properties.Settings.Default.Save();
                 return "";
             }

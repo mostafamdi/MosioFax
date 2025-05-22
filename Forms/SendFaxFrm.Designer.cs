@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendFaxFrm));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.pleaseWaitLbl = new System.Windows.Forms.Label();
@@ -53,6 +54,10 @@
             this.errorProviderSrc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDst = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFile = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.modemStatusBar = new System.Windows.Forms.ToolStripLabel();
+            this.GetModemStatusTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).BeginInit();
@@ -60,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -78,6 +84,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tabPage5.Controls.Add(this.button1);
             this.tabPage5.Controls.Add(this.pleaseWaitLbl);
             this.tabPage5.Controls.Add(this.loadingBarPic);
             this.tabPage5.Controls.Add(this.selectFileBtn);
@@ -205,6 +212,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.White;
             this.tabPage6.Controls.Add(this.label16);
             this.tabPage6.Controls.Add(this.label15);
             this.tabPage6.Controls.Add(this.label14);
@@ -218,7 +226,6 @@
             this.tabPage6.Size = new System.Drawing.Size(272, 314);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Settings";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -281,13 +288,13 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.BackColor = System.Drawing.Color.White;
             this.tabPage7.Location = new System.Drawing.Point(4, 30);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(257, 287);
+            this.tabPage7.Size = new System.Drawing.Size(272, 314);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "About";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // errorProviderSrc
             // 
@@ -301,12 +308,49 @@
             // 
             this.errorProviderFile.ContainerControl = this;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modemStatusBar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 367);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(300, 25);
+            this.toolStrip1.TabIndex = 39;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // modemStatusBar
+            // 
+            this.modemStatusBar.Name = "modemStatusBar";
+            this.modemStatusBar.Size = new System.Drawing.Size(120, 22);
+            this.modemStatusBar.Text = "Modem Status: ------";
+            this.modemStatusBar.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // GetModemStatusTimer
+            // 
+            this.GetModemStatusTimer.Interval = 4000;
+            this.GetModemStatusTimer.Tick += new System.EventHandler(this.GetModemStatusTimer_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(134, 140);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SendFaxFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 543);
+            this.ClientSize = new System.Drawing.Size(300, 392);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SendFaxFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MosioFAX";
@@ -320,7 +364,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -349,5 +396,9 @@
         private System.Windows.Forms.ErrorProvider errorProviderFile;
         private System.Windows.Forms.Label pleaseWaitLbl;
         private System.Windows.Forms.PictureBox loadingBarPic;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel modemStatusBar;
+        private System.Windows.Forms.Timer GetModemStatusTimer;
+        private System.Windows.Forms.Button button1;
     }
 }

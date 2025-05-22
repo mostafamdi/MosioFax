@@ -1,4 +1,5 @@
-﻿using MSIOFAX_Send.Infrastructure;
+﻿using Atom8.Communications.Fax;
+using MSIOFAX_Send.Infrastructure;
 using MSIOFAX_Send.Model;
 using MSIOFAX_Send.Sservices;
 using System;
@@ -17,7 +18,7 @@ namespace MSIOFAX_Send.Forms
     public partial class SendFaxFrm : Form
     {
         string DIR = "";
-        
+        static Hylafax hylafaxObj;
         public SendFaxFrm()
         {
             InitializeComponent();
@@ -34,18 +35,19 @@ namespace MSIOFAX_Send.Forms
                 string FileName = openFileDialog.SafeFileName;
                 DIR = openFileDialog.FileName;
                 fileNameLbl.Text = FileName;
-                MessageBox.Show(DIR);
             }
         }
         void EnableLoadin()
         {
             pleaseWaitLbl.Visible = true;
             loadingBarPic.Visible = true;
+            SendFaxBtn.Enabled = false;
         }
         void DisableLoading()
         {
             pleaseWaitLbl.Visible = false;
             loadingBarPic.Visible = false;
+            SendFaxBtn.Enabled = true;
         }
         private void SendFaxBtn_Click(object sender, EventArgs e)
         {
@@ -70,27 +72,32 @@ namespace MSIOFAX_Send.Forms
                     {
                         Task.Run(() =>
                         {
-                            IHylafaxConnection hylafaxConnection = new HylafaxConnection(
-                                Properties.Settings.Default.ProductKey,
+                            ISecureStorage secureStorage = new SecureStorage();
+                            IHylafax Ihylafax = new HFax(
+                              
                                 Properties.Settings.Default.ServerIP,
                                 Properties.Settings.Default.FaxUsername,
                                 Properties.Settings.Default.FaxPassword,
-                                Convert.ToInt32(Properties.Settings.Default.Port)
+                                Convert.ToInt32(Properties.Settings.Default.Port),
+                                secureStorage
                                 );
-                            if(hylafaxConnection.GetHylafaxConnection().IsConnected)
+                            hylafaxObj = Ihylafax.GetHylafax();
+                            
+                            if (hylafaxObj.IsConnected)
                             {
-                                FaxSender sendFax = new FaxSender(
+                                string faxId = Ihylafax.SendFax(
                                     srcTxtBox.Text.Trim(),
                                     dstTextBox.Text.Trim(),
-                                    DIR,
                                     Properties.Settings.Default.ServerIP,
-                                    hylafaxConnection
-                                    );
-                                string faxId = sendFax.SendFax();
+                                    DIR,
+                                    hylafaxObj
+                                       );
+                                  
                                 this.Invoke((MethodInvoker)(() =>
                                 {
-                                    MessageBox.Show(faxId);
+                                    MessageBox.Show(faxId, "result", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     DisableLoading();
+                                    GetModemStatusTimer.Start();
                                 }));
                             }
                             else
@@ -98,7 +105,7 @@ namespace MSIOFAX_Send.Forms
                                 this.Invoke((MethodInvoker)(() =>
                                  {
                                      DisableLoading();
-                                     MessageBox.Show("not connected!");
+                                     MessageBox.Show("not connected!", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                  }));
                             }
                         });
@@ -155,7 +162,7 @@ namespace MSIOFAX_Send.Forms
                             HUserTxt.Text.Trim(),
                             HPassTxt.Text.Trim(),
                             ServerIPTxt.Text.Trim(),
-                            Properties.Settings.Default.ProductKey,
+                            Properties.Settings.Default.Product_Key,
                             secureStorage
                         );
                     saveingInfo.SaveInfo();
@@ -168,10 +175,43 @@ namespace MSIOFAX_Send.Forms
            
 
         }
+        void GetModemStatus()
+        {
+            Task.Run(() =>
+            {
+                HylafaxModems hm = hylafaxObj.Modems;
+                if (hm.Any())
+                {
+                    
+                    var modem = hm.FirstOrDefault(x => x.PhoneNumber == srcTxtBox.Text.Trim());
+                    if (modem.ModemStatus == "Running and idle")
+                        GetModemStatusTimer.Stop();
+                    else
+                        modemStatusBar.Text = "Modem Status: " + modem.ModemStatus + " on " + modem.ModemName;
+                }
+            });
 
+                 
+            
+        }
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GetModemStatus();
+        }
+
+        private void GetModemStatusTimer_Tick(object sender, EventArgs e)
+        {
+            GetModemStatus();
         }
     }
 }

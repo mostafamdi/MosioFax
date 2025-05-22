@@ -98,12 +98,12 @@ namespace MSIOFAX_Send.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("VOTT-FOFS-SESN-TETH")]
-        public string ProductKey {
+        public string Product_Key {
             get {
-                return ((string)(this["ProductKey"]));
+                return ((string)(this["Product_Key"]));
             }
             set {
-                this["ProductKey"] = value;
+                this["Product_Key"] = value;
             }
         }
     }
