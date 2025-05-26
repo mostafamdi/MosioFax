@@ -12,18 +12,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MSIOFAX_Send.Models;
 namespace MSIOFAX_Send.Forms
 {
     public partial class SendFaxFrm : Form
     {
+        static int GetModemStatusClick = 0;
         string DIR = "";
         static Hylafax hylafaxObj;
+        List<Modem> modemList;
         public SendFaxFrm()
         {
             InitializeComponent();
         }
-
+        
         private void selectFileBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -129,13 +131,14 @@ namespace MSIOFAX_Send.Forms
             }
             else
             {
-                MessageBox.Show("The file not found.!");
+                MessageBox.Show("The file not found!");
             }
             
         }
 
         private void SendFaxFrm_Load(object sender, EventArgs e)
         {
+            modemList = new List<Modem>();
             LoadInfo();
             
         }
@@ -166,7 +169,7 @@ namespace MSIOFAX_Send.Forms
                             secureStorage
                         );
                     saveingInfo.SaveInfo();
-                MessageBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
@@ -179,19 +182,21 @@ namespace MSIOFAX_Send.Forms
         {
             Task.Run(() =>
             {
+
                 HylafaxModems hm = hylafaxObj.Modems;
                 if (hm.Any())
                 {
-                    
-                    var modem = hm.FirstOrDefault(x => x.PhoneNumber == srcTxtBox.Text.Trim());
-                    if (modem.ModemStatus == "Running and idle")
-                        GetModemStatusTimer.Stop();
-                    else
-                        modemStatusBar.Text = "Modem Status: " + modem.ModemStatus + " on " + modem.ModemName;
+                    foreach (var md in hm)
+                    {
+                        var modem = new Modem {ModemName=md.ModemName, Status=md.ModemStatus };
+                        modemList.Add(modem);
+                    }
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        modemStatusGridView.DataSource = modemList;
+                    }));
                 }
             });
-
-                 
             
         }
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -212,6 +217,34 @@ namespace MSIOFAX_Send.Forms
         private void GetModemStatusTimer_Tick(object sender, EventArgs e)
         {
             GetModemStatus();
+        }
+
+        private void GetModemStatusBtn_Click(object sender, EventArgs e)
+        {
+            if (GetModemStatusClick == 1)
+            {
+                GetModemStatusBtn.Name = "Get Modem Status";
+                GetModemStatusClick = 0;
+                GetModemStatusTimer.Stop();
+            }
+            
+            if (GetModemStatusClick == 0)
+            {
+                GetModemStatusBtn.Name = "Disable";
+                GetModemStatusClick = 1;
+                GetModemStatusTimer.Start();
+            }
+            
+        }
+
+        private void StartGetModemStatusBtn_Click(object sender, EventArgs e)
+        {
+            GetModemStatusTimer.Start();
+        }
+
+        private void StopGetModemStatusBtn_Click(object sender, EventArgs e)
+        {
+            GetModemStatusTimer.Stop();
         }
     }
 }

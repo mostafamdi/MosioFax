@@ -71,6 +71,7 @@
     <Compile Include="Models\Fax.cs" />
     <Compile Include="Infrastructure\HFax.cs" />
     <Compile Include="Infrastructure\IHylafax.cs" />
+    <Compile Include="Models\Modem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sservices\GetInfo.cs" />

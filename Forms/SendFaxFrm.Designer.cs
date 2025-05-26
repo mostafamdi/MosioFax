@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SendFaxFrm));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.pleaseWaitLbl = new System.Windows.Forms.Label();
             this.loadingBarPic = new System.Windows.Forms.PictureBox();
             this.selectFileBtn = new System.Windows.Forms.Button();
@@ -51,17 +52,22 @@
             this.ServerIPTxt = new System.Windows.Forms.TextBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.StartGetModemStatusBtn = new System.Windows.Forms.Button();
+            this.StopGetModemStatusBtn = new System.Windows.Forms.Button();
+            this.modemStatusGridView = new System.Windows.Forms.DataGridView();
             this.errorProviderSrc = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDst = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFile = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.modemStatusBar = new System.Windows.Forms.ToolStripLabel();
             this.GetModemStatusTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.GetModemStatusBtn = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).BeginInit();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.modemStatusGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).BeginInit();
@@ -101,6 +107,16 @@
             this.tabPage5.Size = new System.Drawing.Size(272, 314);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Send";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(134, 140);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pleaseWaitLbl
             // 
@@ -289,12 +305,43 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.White;
+            this.tabPage7.Controls.Add(this.StartGetModemStatusBtn);
+            this.tabPage7.Controls.Add(this.StopGetModemStatusBtn);
+            this.tabPage7.Controls.Add(this.modemStatusGridView);
             this.tabPage7.Location = new System.Drawing.Point(4, 30);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(272, 314);
             this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "About";
+            this.tabPage7.Text = "Modems";
+            // 
+            // StartGetModemStatusBtn
+            // 
+            this.StartGetModemStatusBtn.Location = new System.Drawing.Point(14, 171);
+            this.StartGetModemStatusBtn.Name = "StartGetModemStatusBtn";
+            this.StartGetModemStatusBtn.Size = new System.Drawing.Size(123, 35);
+            this.StartGetModemStatusBtn.TabIndex = 2;
+            this.StartGetModemStatusBtn.Text = "Start";
+            this.StartGetModemStatusBtn.UseVisualStyleBackColor = true;
+            this.StartGetModemStatusBtn.Click += new System.EventHandler(this.StartGetModemStatusBtn_Click);
+            // 
+            // StopGetModemStatusBtn
+            // 
+            this.StopGetModemStatusBtn.Location = new System.Drawing.Point(143, 171);
+            this.StopGetModemStatusBtn.Name = "StopGetModemStatusBtn";
+            this.StopGetModemStatusBtn.Size = new System.Drawing.Size(123, 35);
+            this.StopGetModemStatusBtn.TabIndex = 1;
+            this.StopGetModemStatusBtn.Text = "Stop";
+            this.StopGetModemStatusBtn.UseVisualStyleBackColor = true;
+            this.StopGetModemStatusBtn.Click += new System.EventHandler(this.StopGetModemStatusBtn_Click);
+            // 
+            // modemStatusGridView
+            // 
+            this.modemStatusGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.modemStatusGridView.Location = new System.Drawing.Point(6, 43);
+            this.modemStatusGridView.Name = "modemStatusGridView";
+            this.modemStatusGridView.Size = new System.Drawing.Size(260, 122);
+            this.modemStatusGridView.TabIndex = 0;
             // 
             // errorProviderSrc
             // 
@@ -315,7 +362,7 @@
             this.modemStatusBar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 367);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(300, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(301, 25);
             this.toolStrip1.TabIndex = 39;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -331,21 +378,22 @@
             this.GetModemStatusTimer.Interval = 4000;
             this.GetModemStatusTimer.Tick += new System.EventHandler(this.GetModemStatusTimer_Tick);
             // 
-            // button1
+            // GetModemStatusBtn
             // 
-            this.button1.Location = new System.Drawing.Point(134, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.GetModemStatusBtn.Location = new System.Drawing.Point(180, 367);
+            this.GetModemStatusBtn.Name = "GetModemStatusBtn";
+            this.GetModemStatusBtn.Size = new System.Drawing.Size(108, 23);
+            this.GetModemStatusBtn.TabIndex = 40;
+            this.GetModemStatusBtn.Text = "Get Modem Status";
+            this.GetModemStatusBtn.UseVisualStyleBackColor = true;
+            this.GetModemStatusBtn.Click += new System.EventHandler(this.GetModemStatusBtn_Click);
             // 
             // SendFaxFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 392);
+            this.ClientSize = new System.Drawing.Size(301, 392);
+            this.Controls.Add(this.GetModemStatusBtn);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -361,6 +409,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loadingBarPic)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.modemStatusGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSrc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDst)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFile)).EndInit();
@@ -400,5 +450,9 @@
         private System.Windows.Forms.ToolStripLabel modemStatusBar;
         private System.Windows.Forms.Timer GetModemStatusTimer;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button GetModemStatusBtn;
+        private System.Windows.Forms.DataGridView modemStatusGridView;
+        private System.Windows.Forms.Button StartGetModemStatusBtn;
+        private System.Windows.Forms.Button StopGetModemStatusBtn;
     }
 }

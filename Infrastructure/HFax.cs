@@ -10,10 +10,11 @@ namespace MSIOFAX_Send.Model
 {
     public class HFax :IHylafax
     {
+        private static HFax _instance;
         private string host, userName, password;
         private int port;
         private ISecureStorage _secureStorage;
-        public HFax(string _host, string _userName, string _password , int _port, ISecureStorage secureStorage)
+        private HFax(string _host, string _userName, string _password , int _port, ISecureStorage secureStorage)
         {
             host = _host;
             userName = _userName;
@@ -22,6 +23,7 @@ namespace MSIOFAX_Send.Model
             _secureStorage = secureStorage;
 
         }
+        
         public Hylafax GetHylafax()
         {
             string pass = _secureStorage.Decrypt(password);
