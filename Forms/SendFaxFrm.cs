@@ -209,6 +209,41 @@ namespace MSIOFAX_Send.Forms
                 }
             });
         }
+        void GetModemNames()
+        {
+            if (modemList == null)
+                modemList = new List<Modem>();
+            Task.Run(() =>
+            {
+                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", "192.168.1.122", 4559, "ali", "123456");
+                if (hyalafax.IsConnected)
+                {
+                    HylafaxModems hm = hyalafax.Modems;
+                    if (hm.Any())
+                    {
+                        foreach (var md in hm)
+                        {
+                            modem = new Modem { ModemName = md.PhoneNumber, Status = md.ModemStatus };
+                            modemList.Add(modem);
+                        }
+
+                        this.Invoke((MethodInvoker)(() =>
+                        {
+                            ModemNameComboBox.DataSource = modemList;
+                            ModemNameComboBox.DisplayMember = "ModemName";
+                            ModemNameComboBox.ValueMember = "ModemName";
+                            
+                        }));
+                        modemList = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Unable to establish a connection.");
+                    GetModemStatusTimer.Stop();
+                }
+            });
+        }
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -257,6 +292,11 @@ namespace MSIOFAX_Send.Forms
         private void StopGetModemStatusBtn_Click(object sender, EventArgs e)
         {
             GetModemStatusTimer.Stop();
+        }
+
+        private void GetModemNameLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GetModemNames();
         }
     }
 }
