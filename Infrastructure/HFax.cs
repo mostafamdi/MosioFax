@@ -8,22 +8,29 @@ using System.Threading.Tasks;
 
 namespace MSIOFAX_Send.Model
 {
-    public class HFax :IHylafax
+    public class HFax  
     {
+      
         private static HFax _instance;
         private string host, userName, password;
         private int port;
         private ISecureStorage _secureStorage;
+        public Hylafax hyalafax { get; private set; }
+
         private HFax(string _host, string _userName, string _password , int _port, ISecureStorage secureStorage)
         {
-            host = _host;
-            userName = _userName;
-            password = _password;
-            port = _port;
             _secureStorage = secureStorage;
-
+           // string pass = _secureStorage.Decrypt(password);
+            hyalafax =new Hylafax("VOTT-FOFS-SESN-TETH", _host, _port, _userName, "123456");
         }
-        
+        public static HFax GetInstance(string _host, string _userName, string _password, int _port, ISecureStorage secureStorage)
+        {
+            if (_instance == null)
+            {
+                _instance = new HFax(_host, _userName, _password, _port, secureStorage);
+            }
+            return _instance;
+        }
         public Hylafax GetHylafax()
         {
             string pass = _secureStorage.Decrypt(password);
