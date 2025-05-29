@@ -8,7 +8,7 @@ namespace MSIOFAX_Send.Models
 {
     public class Modem
     {
-        public string ModemName { get; set; }
+        public string ModemNumber { get; set; }
         public string Status { get; set; }
     }
 }

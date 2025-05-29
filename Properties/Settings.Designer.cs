@@ -26,12 +26,12 @@ namespace MSIOFAX_Send.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.122")]
-        public string ServerIP {
+        public string Host {
             get {
-                return ((string)(this["ServerIP"]));
+                return ((string)(this["Host"]));
             }
             set {
-                this["ServerIP"] = value;
+                this["Host"] = value;
             }
         }
         
@@ -56,42 +56,6 @@ namespace MSIOFAX_Send.Properties {
             }
             set {
                 this["FaxPassword"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("port")]
-        public string Port {
-            get {
-                return ((string)(this["Port"]));
-            }
-            set {
-                this["Port"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("root")]
-        public string RootUserName {
-            get {
-                return ((string)(this["RootUserName"]));
-            }
-            set {
-                this["RootUserName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
-        public string RootPassword {
-            get {
-                return ((string)(this["RootPassword"]));
-            }
-            set {
-                this["RootPassword"] = value;
             }
         }
         

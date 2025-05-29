@@ -17,7 +17,7 @@ namespace MSIOFAX_Send.Forms
 {
     public partial class SendFaxFrm : Form
     {
-        static int GetModemStatusClick = 0;
+         
         string DIR = "";
         Modem modem;
         List<Modem> modemList;
@@ -63,6 +63,7 @@ namespace MSIOFAX_Send.Forms
             var errors = validator.Validate(fax);
             if (File.Exists(DIR))
             {
+               
                 if (errors.Count == 0)
                 {
                     pleaseWaitLbl.Invoke((MethodInvoker)(() =>
@@ -72,31 +73,29 @@ namespace MSIOFAX_Send.Forms
                     }));
                     try
                     {
-                        Task.Run(() =>
-                        {
-                            ISecureStorage secureStorage = new SecureStorage();
+                         Task.Run(() =>
+                         {
                             var hfax =   HFax.GetInstance(
-                                Properties.Settings.Default.ServerIP,
+                                Properties.Settings.Default.Host,
                                 Properties.Settings.Default.FaxUsername,
                                 Properties.Settings.Default.FaxPassword,
-                                Convert.ToInt32(Properties.Settings.Default.Port),
-                                secureStorage
+                               4559
                                 );
+                            
 
-                           
                             if (hfax.hyalafax.IsConnected)
                             {
                                 string faxId = hfax.SendFax(
                                     srcTxtBox.Text.Trim(),
                                     dstTextBox.Text.Trim(),
-                                    Properties.Settings.Default.ServerIP,
+                                    Properties.Settings.Default.Host,
                                     DIR,
                                     hfax.hyalafax
                                        );
                                   
                                 this.Invoke((MethodInvoker)(() =>
                                 {
-                                    MessageBox.Show(faxId, "result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show(faxId, "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     DisableLoading();
                                     GetModemStatusTimer.Start();
                                 }));
@@ -109,7 +108,7 @@ namespace MSIOFAX_Send.Forms
                                      MessageBox.Show("Unable to establish a connection.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                  }));
                             }
-                        });
+                       });
                     }
                     catch (Exception ex)
                     {
@@ -132,7 +131,6 @@ namespace MSIOFAX_Send.Forms
             {
                 MessageBox.Show("The file not found!");
             }
-            
         }
 
         private void SendFaxFrm_Load(object sender, EventArgs e)
@@ -147,9 +145,9 @@ namespace MSIOFAX_Send.Forms
             {
                 this.Invoke((MethodInvoker)(() =>
                 {
-                    ServerIPTxt.Text = GetInfo.GetInformation()["serverip"];
-                    HUserTxt.Text = GetInfo.GetInformation()["faxuser"];
-                    HPassTxt.Text = GetInfo.GetInformation()["faxpass"];
+                    ServerIPTxt.Text = InfoSavingManager.GetInformation()["host"];
+                    HUserTxt.Text = InfoSavingManager.GetInformation()["faxuser"];
+                    HPassTxt.Text = InfoSavingManager.GetInformation()["faxpass"];
                 }));
                
             });
@@ -158,24 +156,18 @@ namespace MSIOFAX_Send.Forms
         {
             try
             {
-                    ISecureStorage secureStorage = new SecureStorage();
-                    InfoSavingManager saveingInfo = new InfoSavingManager
-                        (
+                    InfoSavingManager.SaveInfo(
                             HUserTxt.Text.Trim(),
                             HPassTxt.Text.Trim(),
                             ServerIPTxt.Text.Trim(),
-                            Properties.Settings.Default.Product_Key,
-                            secureStorage
+                            Properties.Settings.Default.Product_Key
                         );
-                    saveingInfo.SaveInfo();
                     MessageBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-           
-
         }
         void GetModemStatus()
         {
@@ -183,7 +175,7 @@ namespace MSIOFAX_Send.Forms
                 modemList = new List<Modem>();
             Task.Run(() =>
             {
-                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", "192.168.1.122", 4559, "ali", "123456");
+                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", Properties.Settings.Default.Host, 4559, Properties.Settings.Default.FaxUsername, InfoSavingManager.Decrypt(Properties.Settings.Default.FaxPassword));
                 if (hyalafax.IsConnected)
                 {
                     HylafaxModems hm = hyalafax.Modems;
@@ -191,13 +183,14 @@ namespace MSIOFAX_Send.Forms
                     {
                         foreach (var md in hm)
                         {
-                            modem = new Modem { ModemName = md.PhoneNumber, Status = md.ModemStatus };
+                            modem = new Modem { ModemNumber = md.PhoneNumber, Status = md.ModemStatus };
                             modemList.Add(modem);
                         }
-
                         this.Invoke((MethodInvoker)(() =>
                         {
                             modemStatusGridView.DataSource = modemList;
+                            modemStatusGridView.Columns[0].Width = 115;
+                            modemStatusGridView.Columns[1].Width = 175;
                         }));
                         modemList = null;
                     }
@@ -215,7 +208,7 @@ namespace MSIOFAX_Send.Forms
                 modemList = new List<Modem>();
             Task.Run(() =>
             {
-                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", "192.168.1.122", 4559, "ali", "123456");
+                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", Properties.Settings.Default.Host, 4559, Properties.Settings.Default.FaxUsername, InfoSavingManager.Decrypt(Properties.Settings.Default.FaxPassword));
                 if (hyalafax.IsConnected)
                 {
                     HylafaxModems hm = hyalafax.Modems;
@@ -223,16 +216,14 @@ namespace MSIOFAX_Send.Forms
                     {
                         foreach (var md in hm)
                         {
-                            modem = new Modem { ModemName = md.PhoneNumber, Status = md.ModemStatus };
+                            modem = new Modem { ModemNumber = md.PhoneNumber, Status = md.ModemStatus };
                             modemList.Add(modem);
                         }
-
                         this.Invoke((MethodInvoker)(() =>
                         {
                             ModemNameComboBox.DataSource = modemList;
-                            ModemNameComboBox.DisplayMember = "ModemName";
-                            ModemNameComboBox.ValueMember = "ModemName";
-                            
+                            ModemNameComboBox.DisplayMember = "ModemNumber";
+                            ModemNameComboBox.ValueMember = "ModemNumber";
                         }));
                         modemList = null;
                     }
@@ -266,26 +257,12 @@ namespace MSIOFAX_Send.Forms
 
         private void GetModemStatusBtn_Click(object sender, EventArgs e)
         {
-            if (GetModemStatusClick == 1)
-            {
-                GetModemStatusBtn.Name = "Get Modem Status";
-                GetModemStatusClick = 0;
-                GetModemStatusTimer.Stop();
-            }
             
-            if (GetModemStatusClick == 0)
-            {
-                GetModemStatusBtn.Name = "Disable";
-                GetModemStatusClick = 1;
-                GetModemStatusTimer.Start();
-            }
             
         }
 
         private void StartGetModemStatusBtn_Click(object sender, EventArgs e)
         {
-           
-           
             GetModemStatusTimer.Start();
         }
 

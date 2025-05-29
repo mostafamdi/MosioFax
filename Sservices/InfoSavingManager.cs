@@ -1,28 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
+
 namespace MSIOFAX_Send.Sservices
 {
-    public class InfoSavingManager
+    public  static class InfoSavingManager
     {
-        private string UserName { get; set; }
-        private string Password { get; set; }
-        private string ServerIP { get; set; }
-        private string ProductKey { get; set; }
-        private ISecureStorage SecureStorage;
-        public InfoSavingManager(string username, string password, string serverIP, string productKey, ISecureStorage secureStorage)
-        {
-            UserName = username;
-            Password = password;
-            ServerIP = serverIP;
-            SecureStorage = secureStorage;
-        }
-        public string SaveInfo()
+       
+        public static string SaveInfo(string host, string username, string password, string productkey)
         {
             try
             {
-                Properties.Settings.Default.FaxPassword = SecureStorage.Encrypt(Password);
-                Properties.Settings.Default.FaxUsername = UserName;
-                Properties.Settings.Default.ServerIP = ServerIP;
-                Properties.Settings.Default.Product_Key = ProductKey;
+                Properties.Settings.Default.FaxPassword = Encrypt(password);
+                Properties.Settings.Default.FaxUsername = username;
+                Properties.Settings.Default.Host = host;
+                Properties.Settings.Default.Product_Key = productkey;
                 Properties.Settings.Default.Save();
                 return "";
             }
@@ -31,9 +24,25 @@ namespace MSIOFAX_Send.Sservices
                 return ex.ToString();
             }
         }
-        public string GetPassword(string password)
+        public static Dictionary<string, string> GetInformation()
         {
-            return SecureStorage.Decrypt(password);
+            var info = new Dictionary<string, string>();
+            info["host"] = Properties.Settings.Default.Host;
+            info["faxuser"] = Properties.Settings.Default.FaxUsername;
+            info["faxpass"] = Properties.Settings.Default.FaxPassword;
+            return info;
+        }
+        public static string Encrypt(string data)
+        {
+            byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+            byte[] encryptedData = ProtectedData.Protect(dataBytes, null, DataProtectionScope.CurrentUser);
+            return Convert.ToBase64String(encryptedData);
+        }
+        public static string Decrypt(string encryptedData)
+        {
+            byte[] dataBytes = Convert.FromBase64String(encryptedData);
+            byte[] decryptedBytes = ProtectedData.Unprotect(dataBytes, null, DataProtectionScope.CurrentUser);
+            return Encoding.UTF8.GetString(decryptedBytes);
         }
     }
 }

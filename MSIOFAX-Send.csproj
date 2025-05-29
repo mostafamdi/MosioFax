@@ -66,18 +66,13 @@
     <Compile Include="Forms\SendFaxFrm.Designer.cs">
       <DependentUpon>SendFaxFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\FaxValidator.cs" />
-    <Compile Include="Infrastructure\SaveInfo.cs" />
+    <Compile Include="Sservices\FaxValidator.cs" />
     <Compile Include="Models\Fax.cs" />
-    <Compile Include="Infrastructure\HFax.cs" />
-    <Compile Include="Infrastructure\IHylafax.cs" />
+    <Compile Include="Sservices\HFax.cs" />
     <Compile Include="Models\Modem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sservices\GetInfo.cs" />
     <Compile Include="Sservices\InfoSavingManager.cs" />
-    <Compile Include="Sservices\ISecureStorage.cs" />
-    <Compile Include="Sservices\SecureStorage.cs" />
     <EmbeddedResource Include="Forms\SendFaxFrm.resx">
       <DependentUpon>SendFaxFrm.cs</DependentUpon>
     </EmbeddedResource>
