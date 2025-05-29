@@ -55,7 +55,8 @@
     </Win32Resource>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>7352795_mustache_carnival_father_icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>0C0D22C3C4256AB86F049D99F0D3D9AC7E72DBC8</ManifestCertificateThumbprint>
@@ -125,7 +126,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="MSIOFAX-Send_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,16 +136,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\loading21.gif" />
     <None Include="Resources\loading2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="7352795_mustache_carnival_father_icon.ico" />
-    <Content Include="mustache_icon.ico" />
+    <Content Include="Resources\mustache_icon.ico" />
     <Content Include="Resources\loading.gif" />
     <None Include="Resources\loading1.gif" />
   </ItemGroup>
