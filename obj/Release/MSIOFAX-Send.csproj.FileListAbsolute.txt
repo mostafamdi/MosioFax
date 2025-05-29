@@ -1,0 +1,16 @@
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX_Send.Forms.SendFaxFrm.resources
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX_Send.Properties.Resources.resources
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX-Send.csproj.GenerateResource.Cache
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX-Send.exe
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX-Send.pdb
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\MSIOFAX-Send.exe.config
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\MSIOFAX-Send.exe.manifest
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\MSIOFAX-Send.application
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\MSIOFAX-Send.exe
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\MSIOFAX-Send.pdb
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\DiffieHellman.dll
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\Hylafax.net.dll
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\Org.Mentalis.Security.dll
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Release\Tamir.SharpSSH.dll
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX-Send.exe.manifest
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Release\MSIOFAX-Send.application

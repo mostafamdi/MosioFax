@@ -18,7 +18,7 @@ namespace MSIOFAX_Send.Forms
     public partial class SendFaxFrm : Form
     {
          
-        string DIR = "";
+        string DIR = "", modemNumber="";
         Modem modem;
         List<Modem> modemList;
         public SendFaxFrm()
@@ -55,7 +55,7 @@ namespace MSIOFAX_Send.Forms
         {
             var fax = new Fax
             {
-                Src = srcTxtBox.Text,
+                Src = ModemNameComboBox.Text.Trim(),
                 Dst = dstTextBox.Text,
                 File = fileNameLbl.Text
             };
@@ -73,8 +73,8 @@ namespace MSIOFAX_Send.Forms
                     }));
                     try
                     {
-                         Task.Run(() =>
-                         {
+                        Task.Run(() =>
+                        {
                             var hfax =   HFax.GetInstance(
                                 Properties.Settings.Default.Host,
                                 Properties.Settings.Default.FaxUsername,
@@ -85,8 +85,12 @@ namespace MSIOFAX_Send.Forms
 
                             if (hfax.hyalafax.IsConnected)
                             {
-                                string faxId = hfax.SendFax(
-                                    srcTxtBox.Text.Trim(),
+                                this.Invoke((MethodInvoker)(() =>
+                                {
+                                    modemNumber=ModemNameComboBox.Text.Trim();
+                                }));
+                                    string faxId = hfax.SendFax(
+                                    modemNumber,
                                     dstTextBox.Text.Trim(),
                                     Properties.Settings.Default.Host,
                                     DIR,
@@ -108,7 +112,7 @@ namespace MSIOFAX_Send.Forms
                                      MessageBox.Show("Unable to establish a connection.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                  }));
                             }
-                       });
+                      });
                     }
                     catch (Exception ex)
                     {
@@ -118,7 +122,7 @@ namespace MSIOFAX_Send.Forms
                 else
                 {
                     if (errors.ContainsKey("Src"))
-                        errorProviderSrc.SetError(srcTxtBox, errors["Src"]);
+                        errorProviderSrc.SetError(ModemNameComboBox, errors["Src"]);
 
                     if (errors.ContainsKey("Dst"))
                         errorProviderDst.SetError(dstTextBox, errors["Dst"]);
@@ -157,9 +161,9 @@ namespace MSIOFAX_Send.Forms
             try
             {
                     InfoSavingManager.SaveInfo(
+                          ServerIPTxt.Text.Trim(),
                             HUserTxt.Text.Trim(),
                             HPassTxt.Text.Trim(),
-                            ServerIPTxt.Text.Trim(),
                             Properties.Settings.Default.Product_Key
                         );
                     MessageBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,36 +208,62 @@ namespace MSIOFAX_Send.Forms
         }
         void GetModemNames()
         {
-            if (modemList == null)
-                modemList = new List<Modem>();
-            Task.Run(() =>
+            try
             {
-                Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", Properties.Settings.Default.Host, 4559, Properties.Settings.Default.FaxUsername, InfoSavingManager.Decrypt(Properties.Settings.Default.FaxPassword));
-                if (hyalafax.IsConnected)
+                if (modemList == null)
+                    modemList = new List<Modem>();
+                Task.Run(() =>
                 {
-                    HylafaxModems hm = hyalafax.Modems;
-                    if (hm.Any())
+                    this.Invoke((MethodInvoker)(() =>
                     {
-                        foreach (var md in hm)
+                        loadingPic.Visible = true;
+                    }));
+                    var hfax = HFax.GetInstance(
+                               Properties.Settings.Default.Host,
+                               Properties.Settings.Default.FaxUsername,
+                               Properties.Settings.Default.FaxPassword,
+                              4559
+                               );
+                    //Hylafax hyalafax = new Hylafax("VOTT-FOFS-SESN-TETH", Properties.Settings.Default.Host, 4559, Properties.Settings.Default.FaxUsername, InfoSavingManager.Decrypt(Properties.Settings.Default.FaxPassword));
+                    if (hfax.hyalafax.IsConnected)
+                    {
+                        
+                        HylafaxModems hm = hfax.hyalafax.Modems;
+                        if (hm.Any())
                         {
-                            modem = new Modem { ModemNumber = md.PhoneNumber, Status = md.ModemStatus };
-                            modemList.Add(modem);
+                            foreach (var md in hm)
+                            {
+                                modem = new Modem { ModemNumber = md.PhoneNumber, Status = md.ModemStatus };
+                                modemList.Add(modem);
+                            }
+                            this.Invoke((MethodInvoker)(() =>
+                            {
+                                ModemNameComboBox.DataSource = modemList;
+                                ModemNameComboBox.DisplayMember = "ModemNumber";
+                                ModemNameComboBox.ValueMember = "ModemNumber";
+                            }));
+                            modemList = null;
+                            this.Invoke((MethodInvoker)(() =>
+                            {
+                                loadingPic.Visible = false;
+                            }));
                         }
-                        this.Invoke((MethodInvoker)(() =>
-                        {
-                            ModemNameComboBox.DataSource = modemList;
-                            ModemNameComboBox.DisplayMember = "ModemNumber";
-                            ModemNameComboBox.ValueMember = "ModemNumber";
-                        }));
-                        modemList = null;
                     }
-                }
-                else
+                    else
+                    {
+                        MessageBox.Show("Unable to establish a connection.");
+                        GetModemStatusTimer.Stop();
+                        loadingPic.Visible = false;
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                this.Invoke((MethodInvoker)(() =>
                 {
-                    MessageBox.Show("Unable to establish a connection.");
-                    GetModemStatusTimer.Stop();
-                }
-            });
+                    MessageBox.Show(ex.ToString());
+                }));
+            }
         }
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
@@ -274,6 +304,16 @@ namespace MSIOFAX_Send.Forms
         private void GetModemNameLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             GetModemNames();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(ModemNameComboBox.Text);
         }
     }
 }

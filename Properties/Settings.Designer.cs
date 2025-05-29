@@ -25,7 +25,7 @@ namespace MSIOFAX_Send.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.122")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Host {
             get {
                 return ((string)(this["Host"]));
@@ -37,7 +37,7 @@ namespace MSIOFAX_Send.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mostafa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FaxUsername {
             get {
                 return ((string)(this["FaxUsername"]));
@@ -49,7 +49,7 @@ namespace MSIOFAX_Send.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FaxPassword {
             get {
                 return ((string)(this["FaxPassword"]));

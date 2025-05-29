@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="Host" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.1.122</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FaxUsername" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mostafa</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FaxPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">123456</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Product_Key" Type="System.String" Scope="User">
       <Value Profile="(Default)">VOTT-FOFS-SESN-TETH</Value>
