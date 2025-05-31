@@ -28,3 +28,8 @@ D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOF
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.csproj.GenerateResource.Cache
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.exe
 D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.pdb
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Debug\MSIOFAX-Send.exe.manifest
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\bin\Debug\MSIOFAX-Send.application
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.csprojResolveAssemblyReference.cache
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.exe.manifest
+D:\Mostafa\VoIP\voipisgood\Programing\fax\Hylafax.net\Project\MSIOFAX-Send\MSIOFAX-Send\obj\Debug\MSIOFAX-Send.application

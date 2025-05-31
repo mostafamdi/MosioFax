@@ -7,14 +7,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="MSIOFAX-Send.exe.manifest" size="7326">
+    <dependentAssembly dependencyType="install" codebase="MSIOFAX-Send.exe.manifest" size="6392">
       <assemblyIdentity name="MSIOFAX-Send.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vN0Rc2nID02HFRF4AY3HDiCJKtmTljm3xSVTJEUkmys=</dsig:DigestValue>
+        <dsig:DigestValue>IypNBLNoEDhbd5L9DsVeCr3M91nhT+fiLFAthCwSm2Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
